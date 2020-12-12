@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'EstructurasControl@login');
-Route:: post('/valida', 'EstructurasControl@validarLogin');
+Route:: get('/valida', 'EstructurasControl@validarLogin');
+Route:: get('/detail/{id}', 'crud@show');
+Route:: get('/poets', 'crud@poets');
+Route:: get('/delete/{id}', 'crud@destroy');
+Route:: post('/update', 'crud@update');
+Route:: post('/save', 'crud@store');
+
 
 Route::get('page', function () {
     return view('page');
@@ -59,3 +65,7 @@ Route::get('profe','EstructurasControl@profesor' );
 Route::get('posNeg','EstructurasControl@cuenta' );
 Route::get('caja','EstructurasControl@dinero' );
 Route::get('multiplicacion','EstructurasControl@multiplicacion' );
+  
+
+///CRUD
+Route::get('ShowUsers', 'crud@index');
